@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="KAHVIAN ALIF — freelance digital artist, coloring artist, image editor and automotive enthusiast.">
+<title>KAHVIAN ALIF — Creative Portfolio</title>
+
+<style>
+:root{
+  --bg:#eef8f2;
+  --bg2:#e2f3e9;
+  --card:rgba(255,255,255,.82);
+  --white:#fff;
+  --ink:#14231d;
+  --muted:#66766e;
+  --line:#d9e8df;
+  --green:#16845a;
+  --green2:#0f6243;
+  --mint:#ccebdd;
+  --dark:#10251c;
+  --shadow:0 25px 80px rgba(25,72,52,.11);
+  --radius:24px;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--ink);
+  font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  background:
+    radial-gradient(circle at 82% 3%,rgba(255,255,255,.9),transparent 27rem),
+    radial-gradient(circle at 4% 20%,rgba(196,235,214,.7),transparent 22rem),
+    linear-gradient(145deg,var(--bg),#f7fbf8 60%,var(--bg2));
+  line-height:1.5;
+}
+a{text-decoration:none;color:inherit}
+button{font:inherit}
+
+.container{width:min(1180px,calc(100% - 40px));margin:auto}
+
+/* NAV */
+.navbar{
+  position:sticky;top:0;z-index:50;
+  height:76px;
+  border-bottom:1px solid rgba(18,75,52,.08);
+  background:rgba(248,253,250,.78);
+  backdrop-filter:blur(18px);
+}
+.nav-inner{height:100%;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:10px;font-weight:850;letter-spacing:-.04em}
+.logo-mark{
+  width:34px;height:34px;border-radius:11px;
+  display:grid;place-items:center;color:#fff;
+  background:linear-gradient(145deg,#1b9668,#106143);
+  box-shadow:0 9px 22px rgba(22,132,90,.23);
+}
+.logo-text{font-size:18px}.logo-text i{font-style:normal;color:var(--green)}
+.nav-links{display:flex;align-items:center;gap:28px;font-size:13px;color:#5e6c66}
+.nav-links a{transition:.2s}
+.nav-links a:hover{color:var(--green2)}
+.nav-cta{
+  padding:11px 17px;border-radius:12px;background:var(--dark);
+  color:white!important;font-weight:700;
+}
+.menu{display:none;border:0;background:none;font-size:23px}
+
+/* HERO */
+.hero{padding:78px 0 45px}
+.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:65px;align-items:center}
+.kicker{
+  display:inline-flex;align-items:center;gap:9px;
+  padding:8px 12px;border:1px solid #cfe4d9;
+  border-radius:999px;background:rgba(255,255,255,.62);
+  color:var(--green2);font-size:11px;font-weight:800;
+  letter-spacing:.08em;text-transform:uppercase;
+}
+.kicker-dot{width:7px;height:7px;border-radius:50%;background:#32aa72}
+h1{
+  margin:20px 0 18px;
+  max-width:720px;
+  font-size:clamp(48px,7vw,86px);
+  line-height:.94;
+  letter-spacing:-.075em;
+}
+.hero-copy{max-width:620px;color:var(--muted);font-size:17px;line-height:1.8}
+.hero-actions{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  padding:13px 18px;border-radius:13px;font-size:13px;font-weight:750;
+  transition:transform .2s,box-shadow .2s;
+}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:var(--dark);color:#fff;box-shadow:0 12px 28px rgba(16,37,28,.13)}
+.btn-secondary{background:#fff;border:1px solid var(--line);color:var(--ink)}
+
+.hero-note{display:flex;gap:22px;margin-top:34px;flex-wrap:wrap}
+.note-item{font-size:12px;color:#718079}
+.note-item strong{display:block;color:var(--ink);font-size:13px;margin-bottom:2px}
+
+/* ART CARD */
+.visual{position:relative;min-height:455px}
+.art-card{
+  position:absolute;inset:12px 15px 0 15px;
+  border-radius:34px;
+  background:linear-gradient(145deg,#173d2e,#286b4e 54%,#bfe5d0);
+  overflow:hidden;box-shadow:0 32px 80px rgba(21,75,51,.19);
+}
+.art-card:before{
+  content:"";position:absolute;width:330px;height:330px;border-radius:50%;
+  background:rgba(230,250,239,.12);right:-80px;top:-90px;
+}
+.art-card:after{
+  content:"";position:absolute;width:220px;height:220px;border-radius:50%;
+  border:1px solid rgba(255,255,255,.15);left:-75px;bottom:-80px;
+}
+.visual-avatar{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-54%);
+  width:205px;height:205px;border-radius:55px;
+  background:linear-gradient(145deg,#f9fffb,#b7dfc8);
+  box-shadow:0 25px 55px rgba(5,40,27,.26);
+  display:grid;place-items:center;
+  color:#165d42;font-size:66px;font-weight:900;letter-spacing:-.09em;
+}
+.art-label{
+  position:absolute;left:27px;bottom:25px;color:#eaf8f0;
+  z-index:2;
+}
+.art-label small{font-size:10px;text-transform:uppercase;letter-spacing:.15em;opacity:.7}
+.art-label strong{display:block;font-size:20px;letter-spacing:-.04em;margin-top:3px}
+.floating{
+  position:absolute;z-index:3;background:#fff;border:1px solid rgba(255,255,255,.9);
+  box-shadow:0 15px 40px rgba(24,65,48,.16);border-radius:16px;padding:12px 14px;
+}
+.float-one{top:30px;right:-5px}
+.float-two{left:-5px;bottom:60px}
+.floating b{display:block;font-size:15px}
+.floating span{font-size:10px;color:var(--muted)}
+
+/* MARQUEE */
+.strip{
+  margin:28px 0 75px;
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  padding:15px 0;overflow:hidden;color:#718079;
+}
+.strip-inner{display:flex;gap:35px;justify-content:center;flex-wrap:wrap;font-size:11px;font-weight:750;letter-spacing:.13em;text-transform:uppercase}
+
+/* SECTION */
+.section{padding:48px 0}
+.section-heading{display:flex;align-items:end;justify-content:space-between;gap:25px;margin-bottom:28px}
+.overline{font-size:11px;text-transform:uppercase;letter-spacing:.15em;font-weight:800;color:var(--green)}
+h2{margin:7px 0 0;font-size:clamp(30px,4vw,45px);line-height:1;letter-spacing:-.055em}
+.section-intro{max-width:430px;color:var(--muted);font-size:13px}
+
+/* PORTFOLIO */
+.portfolio{display:grid;grid-template-columns:1.15fr .85fr;grid-template-rows:260px 260px;gap:18px}
+.project{
+  position:relative;overflow:hidden;border-radius:23px;min-height:200px;
+  border:1px solid rgba(255,255,255,.9);box-shadow:0 12px 35px rgba(27,74,52,.07);
+  background:#d9efe2;
+}
+.project:first-child{grid-row:1/3}
+.project-bg{position:absolute;inset:0;transition:transform .45s}
+.project:hover .project-bg{transform:scale(1.04)}
+.p1{background:
+  radial-gradient(circle at 65% 30%,#f8d7de 0 9%,transparent 9.5%),
+  radial-gradient(circle at 62% 50%,#d8b2c0 0 17%,transparent 17.5%),
+  linear-gradient(145deg,#294e42,#7aa891 55%,#d9eee2)}
+.p2{background:
+  linear-gradient(135deg,transparent 47%,rgba(255,255,255,.45) 48% 50%,transparent 51%),
+  repeating-linear-gradient(155deg,#bfdccf 0 13px,#e8f4ed 14px 24px)}
+.p3{background:
+  radial-gradient(circle at 70% 30%,#fff 0 7%,transparent 7.5%),
+  linear-gradient(135deg,#18382c,#679b82 50%,#d4ecdf)}
+.project-info{
+  position:absolute;left:18px;right:18px;bottom:17px;z-index:2;
+  color:white;
+}
+.project-info:before{
+  content:"";position:absolute;inset:-80px -20px -20px;
+  background:linear-gradient(transparent,rgba(8,30,21,.68));z-index:-1;
+}
+.project-tag{font-size:9px;text-transform:uppercase;letter-spacing:.12em;opacity:.75}
+.project-title{font-size:18px;font-weight:780;letter-spacing:-.03em;margin-top:3px}
+.project-sub{font-size:11px;opacity:.78}
+
+/* SERVICES */
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
+.service{
+  background:rgba(255,255,255,.8);border:1px solid var(--line);
+  border-radius:20px;padding:24px;transition:.25s;
+}
+.service:hover{transform:translateY(-4px);box-shadow:0 18px 42px rgba(24,77,52,.08)}
+.service-icon{
+  width:39px;height:39px;border-radius:12px;background:#e3f4eb;color:var(--green2);
+  display:grid;place-items:center;font-weight:900;margin-bottom:22px;
+}
+.service h3{font-size:16px;margin:0 0 8px;letter-spacing:-.025em}
+.service p{margin:0;color:var(--muted);font-size:12px;line-height:1.75}
+
+/* ABOUT / EXPERIENCE */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.info-card{
+  background:#fff;border:1px solid var(--line);border-radius:22px;padding:28px;
+}
+.info-card h3{margin:0 0 15px;font-size:18px;letter-spacing:-.03em}
+.info-card p{margin:0;color:var(--muted);font-size:13px;line-height:1.85}
+.experience{display:flex;gap:15px}
+.company-mark{
+  width:42px;height:42px;border-radius:13px;background:#e4f4eb;
+  display:grid;place-items:center;color:var(--green2);font-weight:900;flex:none;
+}
+.experience h4{margin:0;font-size:14px}
+.experience .meta{color:var(--green);font-size:11px;margin:3px 0 8px}
+.experience p{font-size:12px}
+
+/* CONTACT */
+.contact{
+  margin:55px 0 30px;border-radius:28px;padding:42px;
+  background:var(--dark);color:white;position:relative;overflow:hidden;
+}
+.contact:after{
+  content:"";position:absolute;width:420px;height:420px;border-radius:50%;
+  right:-160px;top:-270px;background:rgba(101,205,157,.13);
+}
+.contact-content{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:30px}
+.contact h2{font-size:38px;margin:0 0 10px}
+.contact p{margin:0;color:#b8cbc2;font-size:13px}
+.contact .btn{background:#eaf8f0;color:#174d39}
+
+/* FOOTER */
+footer{padding:30px 0 45px;color:#78867f;font-size:11px;display:flex;justify-content:space-between;border-top:1px solid var(--line)}
+
+/* MOBILE */
+@media(max-width:850px){
+  .nav-links a:not(.nav-cta){display:none}
+  .hero{padding-top:48px}
+  .hero-grid{grid-template-columns:1fr;gap:38px}
+  .visual{min-height:390px}
+  .portfolio{grid-template-columns:1fr;grid-template-rows:260px 220px 220px}
+  .project:first-child{grid-row:auto}
+  .services,.two-col{grid-template-columns:1fr}
+}
+@media(max-width:560px){
+  .container{width:min(100% - 28px,1180px)}
+  .navbar{height:68px}
+  h1{font-size:50px}
+  .hero-copy{font-size:15px}
+  .visual{min-height:330px}
+  .art-card{inset:5px}
+  .visual-avatar{width:155px;height:155px;font-size:48px;border-radius:42px}
+  .floating{transform:scale(.9)}
+  .float-one{right:-9px}.float-two{left:-9px}
+  .section{padding:35px 0}
+  .section-heading{display:block}
+  .section-intro{margin-top:12px}
+  .contact{padding:29px 23px}
+  .contact-content{display:block}
+  .contact .btn{margin-top:22px}
+  .contact h2{font-size:31px}
+  footer{display:block}
+  footer span{display:block;margin:5px 0}
+}
+
+/* COVER + GIG SHOWCASE + GALLERY */
+.cover{
+  margin-top:18px;
+  min-height:380px;
+  border-radius:30px;
+  overflow:hidden;
+  position:relative;
+  background:
+    radial-gradient(circle at 78% 22%,rgba(219,255,234,.28),transparent 18%),
+    radial-gradient(circle at 88% 85%,rgba(104,213,158,.25),transparent 27%),
+    linear-gradient(120deg,#12392b,#1c5d43 58%,#2e8562);
+  color:#fff;
+  box-shadow:0 30px 85px rgba(19,73,49,.19);
+}
+.cover-grid{
+  min-height:380px;padding:48px;
+  display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:30px;
+}
+.cover-kicker{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#bfe8d2;font-weight:800}
+.cover h2{font-size:clamp(38px,5vw,66px);line-height:.94;letter-spacing:-.065em;margin:12px 0 16px;max-width:620px}
+.cover p{color:#c7ddd2;max-width:560px;font-size:14px;line-height:1.8;margin:0}
+.cover-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:25px}
+.cover-actions a{padding:12px 16px;border-radius:12px;font-size:12px;font-weight:800}
+.cover-primary{background:#effbf4;color:#164d38}
+.cover-ghost{border:1px solid rgba(255,255,255,.2);color:#fff;background:rgba(255,255,255,.06)}
+.cover-art{height:285px;position:relative}
+.cover-window{
+  position:absolute;inset:15px 5px 0 30px;border-radius:26px;
+  background:linear-gradient(145deg,#eaf9f0,#b7dfc8);
+  transform:rotate(3deg);box-shadow:0 25px 55px rgba(3,34,22,.2);
+}
+.cover-window:before{
+  content:"";position:absolute;width:185px;height:185px;border-radius:50%;
+  left:50%;top:48%;transform:translate(-50%,-50%);
+  background:linear-gradient(145deg,#fff,#b8dfc8);
+  box-shadow:0 20px 40px rgba(19,79,51,.14);
+}
+.cover-window:after{
+  content:"KA";position:absolute;left:50%;top:48%;transform:translate(-50%,-50%);
+  color:#175d42;font-size:58px;font-weight:900;letter-spacing:-.08em;
+}
+.cover-card{
+  position:absolute;right:0;bottom:0;background:#fff;color:var(--ink);
+  border-radius:17px;padding:14px 16px;box-shadow:0 15px 40px rgba(0,0,0,.16);
+}
+.cover-card strong{display:block;font-size:14px}.cover-card span{font-size:10px;color:var(--muted)}
+
+.gig-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.gig{
+  background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;
+  box-shadow:0 8px 28px rgba(24,75,52,.045);transition:.25s;
+}
+.gig:hover{transform:translateY(-5px);box-shadow:0 20px 45px rgba(24,75,52,.10)}
+.gig-thumb{height:175px;position:relative;overflow:hidden}
+.gig-thumb:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent,rgba(9,34,24,.2))}
+.gig-1{background:radial-gradient(circle at 63% 42%,#f5dce3 0 10%,transparent 10.5%),radial-gradient(circle at 60% 54%,#cda5b4 0 22%,transparent 22.5%),linear-gradient(135deg,#214b3b,#8bb99f)}
+.gig-2{background:linear-gradient(135deg,#193b2d,#68a487 50%,#d9eee1);position:relative}
+.gig-2:before{content:"COLOR";position:absolute;left:20px;top:40px;font-size:42px;font-weight:900;color:rgba(255,255,255,.72);letter-spacing:-.08em}
+.gig-3{background:linear-gradient(145deg,#dceee5,#fff 55%,#aacfb9)}
+.gig-3:before{content:"EDIT";position:absolute;right:18px;bottom:15px;font-size:48px;font-weight:900;color:rgba(21,92,64,.13);letter-spacing:-.08em}
+.gig-body{padding:18px}
+.gig-tag{font-size:9px;color:var(--green);font-weight:850;letter-spacing:.13em;text-transform:uppercase}
+.gig h3{font-size:15px;line-height:1.35;margin:7px 0;color:var(--ink)}
+.gig p{font-size:11px;color:var(--muted);line-height:1.65;margin:0 0 16px}
+.gig-foot{display:flex;align-items:center;justify-content:space-between;border-top:1px solid #edf2ef;padding-top:13px}
+.gig-foot span{font-size:10px;color:#7a8781}.gig-foot b{font-size:12px;color:var(--green2)}
+
+.gallery-toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.filter{
+  border:1px solid var(--line);background:#fff;color:#68766f;
+  padding:9px 13px;border-radius:999px;font-size:11px;cursor:pointer;
+}
+.filter.active,.filter:hover{background:#e5f5ec;color:var(--green2);border-color:#c7e2d4}
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:175px;gap:14px}
+.sample{
+  position:relative;border-radius:18px;overflow:hidden;cursor:pointer;
+  border:1px solid rgba(255,255,255,.9);background:#d8ece1;
+}
+.sample:nth-child(1){grid-column:span 2;grid-row:span 2}
+.sample:nth-child(4){grid-column:span 2}
+.sample-bg{position:absolute;inset:0;transition:.35s}
+.sample:hover .sample-bg{transform:scale(1.05)}
+.s1{background:radial-gradient(circle at 60% 37%,#f6d8df 0 9%,transparent 9.5%),radial-gradient(circle at 57% 54%,#c9a2b1 0 22%,transparent 22.5%),linear-gradient(145deg,#274d40,#8dbba0)}
+.s2{background:linear-gradient(135deg,#153b2d,#67a283,#d4ecdf)}
+.s3{background:repeating-linear-gradient(145deg,#b8d9c8 0 12px,#e8f5ee 13px 24px)}
+.s4{background:linear-gradient(145deg,#d7e9e0,#fff 53%,#9bc5ae)}
+.s5{background:radial-gradient(circle at 65% 45%,#fff 0 13%,transparent 13.5%),linear-gradient(145deg,#173b2d,#4e8c6d)}
+.s6{background:linear-gradient(135deg,#eef8f2,#a6cfba 50%,#477e64)}
+.sample-overlay{
+  position:absolute;inset:0;padding:16px;display:flex;align-items:flex-end;
+  background:linear-gradient(transparent 45%,rgba(6,28,19,.7));color:#fff;opacity:0;transition:.25s;
+}
+.sample:hover .sample-overlay{opacity:1}
+.sample-overlay b{font-size:12px}.sample-overlay span{display:block;font-size:9px;opacity:.78;margin-top:2px}
+.lightbox{
+  display:none;position:fixed;inset:0;z-index:100;background:rgba(5,18,12,.78);
+  backdrop-filter:blur(8px);align-items:center;justify-content:center;padding:25px;
+}
+.lightbox.open{display:flex}
+.lightbox-box{width:min(820px,100%);background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 35px 100px rgba(0,0,0,.3)}
+.lightbox-art{height:min(58vh,500px);background:linear-gradient(145deg,#214d3c,#b7ddc8);position:relative;display:grid;place-items:center}
+.lightbox-art:after{content:"SAMPLE";font-size:70px;font-weight:900;letter-spacing:-.08em;color:rgba(255,255,255,.48)}
+.lightbox-info{padding:18px 20px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.lightbox-info b{font-size:14px}.lightbox-info span{display:block;color:var(--muted);font-size:11px}
+.close{border:0;background:#edf6f1;border-radius:10px;width:35px;height:35px;cursor:pointer;font-size:18px}
+
+@media(max-width:850px){
+  .cover-grid{grid-template-columns:1fr;padding:34px}.cover{min-height:620px}
+  .cover-grid{min-height:620px}.cover-art{height:240px}
+  .gig-grid{grid-template-columns:1fr 1fr}
+  .gallery{grid-template-columns:repeat(2,1fr);grid-auto-rows:170px}
+  .sample:nth-child(1){grid-column:span 2;grid-row:span 1}
+  .sample:nth-child(4){grid-column:span 1}
+}
+@media(max-width:560px){
+  .cover{min-height:660px;border-radius:24px}.cover-grid{min-height:660px;padding:26px}
+  .cover h2{font-size:43px}.cover-art{height:245px}
+  .cover-window{inset:10px 0 0 8px}
+  .gig-grid{grid-template-columns:1fr}
+  .gallery{grid-template-columns:1fr 1fr;grid-auto-rows:145px;gap:9px}
+  .sample:nth-child(1){grid-column:span 2}
+  .lightbox-info{align-items:flex-start}
+}
+
+
+/* REAL PORTFOLIO IMAGES */
+.hero-photo{background:url('anime-white.jpg') center/cover no-repeat!important;color:transparent!important;overflow:hidden}
+.p1{background:url('anime-white.jpg') center/cover no-repeat!important}
+.p2{background:url('towa-01.jpg') center/cover no-repeat!important}
+.p3{background:url('engine.jpg') center/cover no-repeat!important}
+.s1{background:url('gearbox.jpg') center/cover no-repeat!important}
+.s2{background:url('engine.jpg') center/cover no-repeat!important}
+.s3{background:url('turbo.jpg') center/cover no-repeat!important}
+.s4{background:url('anime-white.jpg') center/cover no-repeat!important}
+.s5{background:url('towa-01.jpg') center/cover no-repeat!important}
+.s6{background:url('sakura.jpg') center/cover no-repeat!important}
+.s7{background:url('towa-02.jpg') center/cover no-repeat!important}
+.s8{background:url('anime-black.jpg') center/cover no-repeat!important}
+.s9{background:url('towa-03.jpg') center/cover no-repeat!important}
+.s10{background:url('towa-04.png') center/cover no-repeat!important}
+.gig-1{background:url('anime-white.jpg') center/cover no-repeat!important}
+.gig-2{background:url('sakura.jpg') center/cover no-repeat!important}
+.gig-3{background:url('engine.jpg') center/cover no-repeat!important}
+.sample-bg{background-color:#dfeee7;background-position:center;background-size:cover;background-repeat:no-repeat}
+</style>
+</head>
+
+<body>
+<header class="navbar">
+  <div class="container nav-inner">
+    <a href="#" class="logo">
+      <span class="logo-mark">K</span>
+      <span class="logo-text">Kahvian<span>.</span></span>
+    </a>
+    <nav class="nav-links">
+      <a href="#work">Work</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact" class="nav-cta">Let's talk →</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="kicker"><span class="kicker-dot"></span> Independent creative freelancer</div>
+        <h1>Ideas that feel<br><span style="color:var(--green)">personal.</span></h1>
+        <p class="hero-copy">
+          Hi, I'm <strong>Kahvian Alif</strong> — a digital artist and automotive enthusiast from Indonesia.
+          I create clean digital artwork, coloring, image edits and simple visual designs with a careful, human touch.
+        </p>
+        <div class="hero-actions">
+          <a href="#work" class="btn btn-primary">Explore my work ↗</a>
+          <a href="#contact" class="btn btn-secondary">Start a project</a>
+        </div>
+        <div class="hero-note">
+          <div class="note-item"><strong>Indonesia</strong>Based in</div>
+          <div class="note-item"><strong>3 languages</strong>Communication</div>
+          <div class="note-item"><strong>Available</strong>For selected projects</div>
+        </div>
+      </div>
+
+      <div class="visual" aria-label="Profile visual">
+        <div class="art-card">
+          <div class="visual-avatar hero-photo"></div>
+          <div class="art-label">
+            <small>Creative portfolio</small>
+            <strong>KAHVIAN ALIF</strong>
+          </div>
+        </div>
+        <div class="floating float-one">
+          <b>Digital Art</b>
+          <span>Coloring · Editing</span>
+        </div>
+        <div class="floating float-two">
+          <b>Automotive</b>
+          <span>Hands-on experience</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="container cover" id="cover">
+    <div class="cover-grid">
+      <div>
+        <div class="cover-kicker">Kahvian Alif · Freelance Creative</div>
+        <h2>Digital work with a human touch.</h2>
+        <p>
+          Digital art, coloring and image editing for personal projects, creators and small businesses.
+          Clean communication, careful finishing and a style that can adapt to your brief.
+        </p>
+        <div class="cover-actions">
+          <a class="cover-primary" href="#gigs">View my gigs →</a>
+          <a class="cover-ghost" href="#samples">See samples</a>
+        </div>
+      </div>
+      <div class="cover-art">
+        <div class="cover-window"></div>
+        <div class="cover-card">
+          <strong>KA / CREATIVE</strong>
+          <span>Digital art · Coloring · Editing</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="strip">
+    <div class="container strip-inner">
+      <span>Digital Art</span><span>✦</span><span>Coloring</span><span>✦</span>
+      <span>Image Editing</span><span>✦</span><span>Graphic Design</span><span>✦</span>
+      <span>Automotive</span>
+    </div>
+  </div>
+
+  <section class="section" id="work">
+    <div class="container">
+      <div class="section-heading">
+        <div>
+          <div class="overline">Selected work</div>
+          <h2>A few things I enjoy making.</h2>
+        </div>
+        <p class="section-intro">Kumpulan karya aktual: ilustrasi anime, desain bernuansa Jepang, serta dokumentasi otomotif dan mesin.</p>
+      </div>
+
+      <div class="portfolio">
+        <article class="project">
+          <div class="project-bg p1"></div>
+          <div class="project-info">
+            <div class="project-tag">Digital art</div>
+            <div class="project-title">Anime Character Artwork</div>
+            <div class="project-sub">Character study · coloring · finishing</div>
+          </div>
+        </article>
+        <article class="project">
+          <div class="project-bg p2"></div>
+          <div class="project-info">
+            <div class="project-tag">Japanese design</div>
+            <div class="project-title">Towa Higurashi Visuals</div>
+            <div class="project-sub">Banner · background · visual composition</div>
+          </div>
+        </article>
+        <article class="project">
+          <div class="project-bg p3"></div>
+          <div class="project-info">
+            <div class="project-tag">Automotive</div>
+            <div class="project-title">Engine & Mechanical Work</div>
+            <div class="project-sub">Engine · turbo · transmission documentation</div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section" id="gigs">
+    <div class="container">
+      <div class="section-heading">
+        <div>
+          <div class="overline">Gig showcase</div>
+          <h2>Services you can actually hire me for.</h2>
+        </div>
+        <p class="section-intro">Clear packages make it easier to understand what I can do before starting a conversation.</p>
+      </div>
+      <div class="gig-grid">
+        <article class="gig">
+          <div class="gig-thumb gig-1"></div>
+          <div class="gig-body">
+            <div class="gig-tag">Digital Art</div>
+            <h3>I will create a clean anime-style digital artwork</h3>
+            <p>Character-focused artwork, coloring and simple finishing based on your reference or brief.</p>
+            <div class="gig-foot"><span>Custom project</span><b>View gig →</b></div>
+          </div>
+        </article>
+        <article class="gig">
+          <div class="gig-thumb gig-2"></div>
+          <div class="gig-body">
+            <div class="gig-tag">Coloring</div>
+            <h3>I will color and polish your line art</h3>
+            <p>Balanced colors, readable lighting and a clean final image suitable for personal projects.</p>
+            <div class="gig-foot"><span>Custom project</span><b>View gig →</b></div>
+          </div>
+        </article>
+        <article class="gig">
+          <div class="gig-thumb gig-3"></div>
+          <div class="gig-body">
+            <div class="gig-tag">Image Editing</div>
+            <h3>I will edit and clean up your image</h3>
+            <p>Practical image adjustments, cleanup and simple visual improvements with clear communication.</p>
+            <div class="gig-foot"><span>Custom project</span><b>View gig →</b></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="services">
+    <div class="container">
+      <div class="section-heading">
+        <div>
+          <div class="overline">What I do</div>
+          <h2>Simple services, done carefully.</h2>
+        </div>
+      </div>
+
+      <div class="services">
+        <article class="service">
+          <div class="service-icon">✦</div>
+          <h3>Digital Art</h3>
+          <p>Anime-style artwork, simple illustrations and visual concepts with attention to clean composition.</p>
+        </article>
+        <article class="service">
+          <div class="service-icon">◒</div>
+          <h3>Digital Coloring</h3>
+          <p>Coloring and finishing work focused on harmony, readable lighting and a polished final look.</p>
+        </article>
+        <article class="service">
+          <div class="service-icon">↗</div>
+          <h3>Image Editing</h3>
+          <p>Practical edits, cleanup and simple graphic work for personal or small freelance projects.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section" id="samples">
+    <div class="container">
+      <div class="section-heading">
+        <div>
+          <div class="overline">Portfolio / samples</div>
+          <h2>Some visual directions I can work in.</h2>
+        </div>
+        <p class="section-intro">Portfolio terbaru menggunakan gambar yang kamu kirim. Gunakan filter untuk melihat kategori karya.</p>
+      </div>
+
+      <div class="gallery-toolbar" aria-label="Portfolio filters">
+        <button class="filter active" data-filter="all">All work</button>
+        <button class="filter" data-filter="art">Digital art</button>
+        <button class="filter" data-filter="color">Coloring</button>
+        <button class="filter" data-filter="auto">Automotive</button>
+      </div>
+
+      <div class="gallery">
+        <article class="sample" data-category="auto" data-title="Transmission / Gearbox" data-type="Automotive · mechanical work">
+          <div class="sample-bg s1"></div>
+          <div class="sample-overlay"><div><b>Transmission / Gearbox</b><span>Automotive · mechanical work</span></div></div>
+        </article>
+        <article class="sample" data-category="auto" data-title="Engine Assembly" data-type="Automotive · engine work">
+          <div class="sample-bg s2"></div>
+          <div class="sample-overlay"><div><b>Engine Assembly</b><span>Automotive · engine work</span></div></div>
+        </article>
+        <article class="sample" data-category="auto" data-title="Turbocharger & Manifold" data-type="Automotive · turbo system">
+          <div class="sample-bg s3"></div>
+          <div class="sample-overlay"><div><b>Turbocharger & Manifold</b><span>Automotive · turbo system</span></div></div>
+        </article>
+        <article class="sample" data-category="art" data-title="White-Haired Anime Character" data-type="Digital art">
+          <div class="sample-bg s4"></div>
+          <div class="sample-overlay"><div><b>White-Haired Anime Character</b><span>Digital art</span></div></div>
+        </article>
+        <article class="sample" data-category="art" data-title="Towa Higurashi Banner" data-type="Anime visual design">
+          <div class="sample-bg s5"></div>
+          <div class="sample-overlay"><div><b>Towa Higurashi Banner</b><span>Anime visual design</span></div></div>
+        </article>
+        <article class="sample" data-category="color" data-title="Sakura Japanese Background" data-type="Background design">
+          <div class="sample-bg s6"></div>
+          <div class="sample-overlay"><div><b>Sakura Japanese Background</b><span>Background design</span></div></div>
+        </article>
+        <article class="sample" data-category="art" data-title="Towa Higurashi — Blue Visual" data-type="Anime visual design">
+          <div class="sample-bg s7"></div>
+          <div class="sample-overlay"><div><b>Towa Higurashi — Blue Visual</b><span>Anime visual design</span></div></div>
+        </article>
+        <article class="sample" data-category="art" data-title="Black-Haired Anime Character" data-type="Digital art">
+          <div class="sample-bg s8"></div>
+          <div class="sample-overlay"><div><b>Black-Haired Anime Character</b><span>Digital art</span></div></div>
+        </article>
+        <article class="sample" data-category="art" data-title="Towa Higurashi — Alternate Banner" data-type="Anime visual design">
+          <div class="sample-bg s9"></div>
+          <div class="sample-overlay"><div><b>Towa Higurashi — Alternate Banner</b><span>Anime visual design</span></div></div>
+        </article>
+        <article class="sample" data-category="art" data-title="Towa Higurashi — Soft Blue" data-type="Anime visual design">
+          <div class="sample-bg s10"></div>
+          <div class="sample-overlay"><div><b>Towa Higurashi — Soft Blue</b><span>Anime visual design</span></div></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="container two-col">
+      <article class="info-card">
+        <div class="overline">About</div>
+        <h3>Still learning. Always improving.</h3>
+        <p>
+          I'm building my freelance journey around two interests: digital creativity and automotive technology.
+          I prefer clear communication, realistic expectations and work that feels useful rather than over-designed.
+        </p>
+      </article>
+
+      <article class="info-card" id="experience">
+        <div class="overline">Experience</div>
+        <div class="experience">
+          <div class="company-mark">S</div>
+          <div>
+            <h4>Automotive Trainee · Suzuki</h4>
+            <div class="meta">Part-time · Jun 2026 — Present</div>
+            <p>
+              Assisting with routine vehicle maintenance and basic repairs under supervision.
+              Hands-on practice includes engine maintenance, suspension, V-belt, spark plug,
+              brake pad and clutch work, plus general vehicle servicing.
+            </p>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="container contact" id="contact">
+    <div class="contact-content">
+      <div>
+        <h2>Have something small<br>you'd like to make?</h2>
+        <p>Tell me what you need. We can keep the process simple and straightforward.</p>
+      </div>
+      <a class="btn" href="mailto:your@email.com">Contact me →</a>
+    </div>
+  </section>
+</main>
+
+<footer class="container">
+  <span>© 2026 KAHVIAN ALIF</span>
+  <span>Digital art · Coloring · Image editing · Automotive</span>
+</footer>
+
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <div class="lightbox-box">
+    <div class="lightbox-art" id="lightboxArt"></div>
+    <div class="lightbox-info">
+      <div><b id="lightboxTitle">Sample</b><span id="lightboxType">Portfolio</span></div>
+      <button class="close" id="closeLightbox" aria-label="Close">×</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(() => {
+  const filters = document.querySelectorAll('.filter');
+  const samples = document.querySelectorAll('.sample');
+  const lightbox = document.getElementById('lightbox');
+  const art = document.getElementById('lightboxArt');
+  const title = document.getElementById('lightboxTitle');
+  const type = document.getElementById('lightboxType');
+  const close = document.getElementById('closeLightbox');
+
+  filters.forEach(btn => btn.addEventListener('click', () => {
+    filters.forEach(x => x.classList.remove('active'));
+    btn.classList.add('active');
+    const filter = btn.dataset.filter;
+    samples.forEach(item => {
+      item.style.display = filter === 'all' || item.dataset.category === filter ? '' : 'none';
+    });
+  }));
+
+  samples.forEach(item => item.addEventListener('click', () => {
+    const bg = item.querySelector('.sample-bg');
+    art.style.background = getComputedStyle(bg).background;
+    title.textContent = item.dataset.title;
+    type.textContent = item.dataset.type;
+    lightbox.classList.add('open');
+    lightbox.setAttribute('aria-hidden','false');
+  }));
+
+  function hide(){lightbox.classList.remove('open');lightbox.setAttribute('aria-hidden','true')}
+  close.addEventListener('click', hide);
+  lightbox.addEventListener('click', e => { if(e.target === lightbox) hide(); });
+  document.addEventListener('keydown', e => { if(e.key === 'Escape') hide(); });
+})();
+</script>
+
+</body>
+</html>
